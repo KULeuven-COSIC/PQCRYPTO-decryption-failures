@@ -1,3 +1,6 @@
 [submodule "RamstakeTimingAttack/KeccakCodePackage"]
 	path = RamstakeTimingAttack/KeccakCodePackage
 	url = https://github.com/XKCP/XKCP.git
+[submodule "DecryptionFailureAttack/estimateLWE"]
+	path = DecryptionFailureAttack/estimateLWE
+	url = https://github.com/estimate-all-the-lwe-ntru-schemes/estimate-all-the-lwe-ntru-schemes.github.io.git
