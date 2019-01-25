@@ -1,3 +1,4 @@
 *.pyc
 *.npy
+*.o
 RamstakeTimingAttack/attack
