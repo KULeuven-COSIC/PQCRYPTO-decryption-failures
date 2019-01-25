@@ -1,0 +1,3 @@
+[submodule "RamstakeTimingAttack/KeccakCodePackage"]
+	path = RamstakeTimingAttack/KeccakCodePackage
+	url = https://github.com/XKCP/XKCP.git

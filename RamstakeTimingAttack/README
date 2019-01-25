@@ -1,0 +1,10 @@
+The attack can be run using the following commands:
+
+cd KeccakCodePackage
+make generic64/libkeccak.a
+cd ..
+make attack
+./attack deadbeef
+or ./attack deadbeef -v (if you want to know the inner workings of the attack)
+
+deadbeef is the initialization of the randomness and can be swapped with other hexadecimal inputs
