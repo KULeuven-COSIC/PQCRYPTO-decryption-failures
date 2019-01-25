@@ -1,0 +1,6 @@
+#!/usr/bin/
+
+cd getsamples/
+make
+./lac > ../check256.txt
+cd ..
