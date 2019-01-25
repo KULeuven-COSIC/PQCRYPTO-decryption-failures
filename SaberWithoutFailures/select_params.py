@@ -107,12 +107,6 @@ def main():
                 print logq, coins, n
                 print '-------'
                 search_params(coins,q,n,256,170,-128)
-    # print('\n\n')
-    # print('-lightsaber-')
-        #search_params(10,q,2,256,100,-100)
-    # print('\n\n')
-    # print('-firesaber-')
-        # search_params(6,q,4,256,160,-160)
 
 
 
