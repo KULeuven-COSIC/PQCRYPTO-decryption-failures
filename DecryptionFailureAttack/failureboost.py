@@ -4,10 +4,6 @@ from proba_util2 import *
 from scipy.stats import norm
 from math import log
 
-import matplotlib as mpl
-mpl.use('Agg')
-import matplotlib.pyplot as plt
-
 
 def Probl(n, s, sprime, e, eprime):
     # get the variance of the secrets
@@ -35,7 +31,7 @@ def Failgivenl(variance):
     return lambda thres: norm.sf(thres, loc=0, scale=sqrt(variance))
 
 
-def getplot(n, n2, thres, s, sprime, e, eprime, eprimeprime, errorCorrection=False, n3=1, **args):
+def failureboosting(n, n2, thres, s, sprime, e, eprime, eprimeprime, errorCorrection=False, n3=1, **args):
     # only abs of eprimeprime is important
     absepp = law_abs(eprimeprime)
 
@@ -89,14 +85,18 @@ def main():
     # choose which schemes to plot
     from NISTschemes import Kyber768, Saber, LizardCat3, LAC192, LAC256, FrodoKEM640, FrodoKEM976, Kyber1024, FireSaber, LightSaber, Kyber512, LightSaber, Kyber512
 
-    toplot = [Kyber768, FrodoKEM976, LAC256, Saber, LizardCat3]
+    import matplotlib as mpl
+    mpl.use('Agg')
+    import matplotlib.pyplot as plt
+
+    toplot = [FrodoKEM976, FrodoKEM640]
 
     import pickle
     import os.path
     for i in toplot:
         if os.path.exists(i['name'] + "-2.pkl"):
             continue
-        alpha, beta = getplot(**i)
+        alpha, beta = failureboosting(**i)
         with open(i['name'] + "-2.pkl", "wb") as f:
             pickle.dump([alpha, beta], f)
 
@@ -113,6 +113,9 @@ def main():
         plt.loglog(alpha, beta,
                    color=color, label=i['name'], basex=2, basey=2)
         print i['name'], 'failure probability: 2^' + str(log(min(beta), 2))
+        workforonefailure = np.log2([ sqrt(a) * b**-1 for a,b in zip(alpha, beta)])
+        place = np.log2(beta[np.argmin(workforonefailure)])
+        print i['name'], 'failure boosting probability: 2^' + str(min(workforonefailure)) + ' at: 2^' + str(place)
 
     # plt.gca().invert_xaxis()
     plt.xlabel(u'work to generate one weak sample (1/α)')
@@ -135,7 +138,6 @@ def main():
             alpha, beta = pickle.load(f)
         plt.loglog(beta, [a * b**-1 for a, b in zip(alpha, beta)],
                    color=color, label=i['name'], basex=2, basey=2)
-        print i['name'], 'failure probability: 2^' + str(log(min(beta), 2))
 
     plt.axvline(x=2**-64, color='r', linestyle='--')
     # plt.gca().invert_xaxis()
@@ -158,7 +160,6 @@ def main():
             alpha, beta = pickle.load(f)
         plt.loglog(np.sqrt(alpha), [sqrt(a) * b**-1 for a, b in zip(alpha, beta)],
                    color=color, label=i['name'], basex=2, basey=2)
-        print i['name'], 'failure probability: 2^' + str(log(min(beta), 2))
 
     # plt.gca().invert_xaxis()
     plt.xlabel(u'work to generate one weak sample (1/√α)')

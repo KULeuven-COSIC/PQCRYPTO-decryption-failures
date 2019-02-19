@@ -10,10 +10,6 @@ f= open("estimateLWE/__init__.py","w+")
 f.close() 
 from estimateLWE.estimates import para_cost_scheme, flatten
 
-import matplotlib as mpl
-mpl.use('Agg')
-import matplotlib.pyplot as plt
-
 def security_failure(scheme, entropy, name):
     sd = scheme["params"][0]["sd"]
     primal = []
@@ -144,6 +140,10 @@ def main():
     from NISTschemesSEC import SCHEMES
 
     toplot = [Saber, Kyber768, FrodoKEM976]
+
+    import matplotlib as mpl
+    mpl.use('Agg')
+    import matplotlib.pyplot as plt
 
 
     for i in toplot:
