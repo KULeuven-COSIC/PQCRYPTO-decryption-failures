@@ -9,7 +9,8 @@
 
 #define ITESTSAMPLES 10
 #define JTESTSAMPLES 10000
-#define ITESTS 10000
+// increase ITESTS for better precision
+#define ITESTS 1000
 
 #define RATIO 125
 
