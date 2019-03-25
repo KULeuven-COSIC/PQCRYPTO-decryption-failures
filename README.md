@@ -11,11 +11,11 @@ https://eprint.iacr.org/2018/1172
 
 #### LacTimingAttack
 Timing attack on the error correcting code of LAC  
-(To be published)
+https://eprint.iacr.org/2019/292
 
 #### RamstakeTimingAttack
 Timing attack on the error correcting code of Ramstake  
-(To be published)
+https://eprint.iacr.org/2019/292
 
 #### SaberWithoutFailures
 Scripts to determine parameters for Saber without decryption failures
