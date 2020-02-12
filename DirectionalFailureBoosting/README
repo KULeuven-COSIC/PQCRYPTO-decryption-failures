@@ -1,0 +1,12 @@
+To run the scripts:
+
+## generate all the numbers and figures from the paper (except Appendix B)
+# standard running gives the results from the paper
+# more option with -h
+sage main.py
+
+## experiment from Appendix B
+# standard number of estimates, decryption failures and successes generated is 1000
+# you can increase this with -e num_estimates -f num_failures -s num_successes
+# more option with -h
+sage directional_failure_boosting.py
