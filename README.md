@@ -1,6 +1,10 @@
 # PQCRYPTO-decryption-failures
 Scripts relating to decryption failures in PQCRYPTO schemes
 
+####  DirectionalFailureBoosting-
+Extending the DecryptionFailureAttack and showing that a speedup of the attack is possible once one or more failures have been found
+https://eprint.iacr.org/2019/1399
+
 #### DecryptionFailureAttack
 Investigation into the impact of decryption failures on (Ring/Mod)-LWE/LWR based schemes  
 https://eprint.iacr.org/2018/1089 
