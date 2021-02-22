@@ -1,6 +1,10 @@
 # PQCRYPTO-decryption-failures
 Scripts relating to decryption failures in PQCRYPTO schemes
 
+For the most up to date failure boosting scripts go to: https://github.com/KULeuven-COSIC/failure-boosting
+
+This repository contains the scripts used for the following papers:
+
 ####  DirectionalFailureBoosting-
 Extending the DecryptionFailureAttack and showing that a speedup of the attack is possible once one or more failures have been found
 https://eprint.iacr.org/2019/1399
